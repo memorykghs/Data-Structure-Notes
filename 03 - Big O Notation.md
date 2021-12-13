@@ -1,4 +1,5 @@
-# 03 - Big O Notation
+# 03 - Big O Notation & Logarithm 對數
+## Big O Notation
 Big O 是幫助我們描述某個操作花費的成本，包括：
 * **時間複雜度 Time Complexity**
 主要用來衡量演算法的速度。
@@ -46,3 +47,26 @@ Thus, when describing the time complexity of an algorithm, it can sometimes be
 helpful to specify whether the time complexity refers to the average case or
 to the worst case (e.g., "this algorithm runs in O(nlog(n)) time on average
 and in O(n<sup>2</sup>) time in the worse case").
+
+
+## Logarithm 對數
+* 在一般數學而言，對數的定義是 ：
+**log<sub>b</sub>(x) = y** if and only if **b<sup>y</sup> = x**
+<br/>
+
+* 在計算機科學中，Log 是以 2 為以底數，而非 10。也就是以以下定義為主：
+**log(n) = y** if and only if **2<sup>y</sup> = n**
+<br/>
+
+* 簡單來說，當某個演算法具有對數時間複雜度 ( logarithmic time complexity ) ( **O(log(n))**，其中 **n** 為輸入的變數 )，**n** 變成兩倍，對其而言所需的操作僅僅只是加上了一次。
+  
+  $2^4 = 16$ &rArr; $log(16) = 4$
+  將 $16 * 2$ 後得到 32，取對數 $log(32) = 2^4 * 2$ 的結果是 5，僅僅只多加了一次
+
+  ![](images/3-2.png)
+<br/>
+
+* 反之，若演算法具有線性時間複雜度，**n** 同樣變為兩倍，所需的時間很有可能是 **n**。
+<br/>
+
+* 具有對數時間複雜度，其效率會比線性時間複雜度高。
