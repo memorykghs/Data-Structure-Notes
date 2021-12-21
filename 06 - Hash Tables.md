@@ -33,3 +33,8 @@ Hash tables 依賴 hash code 來最小化儲存值時會發生的衝突 ( collis
 最壞的情況，就是發生大量 hash code 相同時，導致內部存有很長的 Linked List，就需要 O(n) space time 來遍歷。
 
 然而一般的情況下，我們會假裝 hash function 會套用某些數學最佳化的函式計算出 hash code，讓 hash code 極少發生重複，並保證操作值都維持 O(1)。
+
+## 參考
+
+## 延伸閱讀
+* [淺談「Hash」、「Hashtable」與「HashMap」](https://medium.com/rick-x-coding/%E6%B7%BA%E8%AB%87-hash-hashtable-%E8%88%87-hashmap-4e5f5e5d36da)
