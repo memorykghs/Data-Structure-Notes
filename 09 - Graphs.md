@@ -8,6 +8,22 @@ p.s. 不建議記住 Graph 的所有類型與行為，建議看到圖的時候�
 像上面那張圖可以發現幾個現象：
 1. `Node 3` 跟 `Node 6` 是沒有辦法連接到 Graph 的其他 Node，代表 not connected graph。
 2. 部分的點之間是有方向性的，可以分成**單向 ( one-way direction )** 與 **雙向 ( two-way direction )**。
+3. 這些點之間的關係可以以 Adjancency List ( 鄰接表 ) 呈現。
+
+在 Graph 中重要的 3 個角色是：
+1. Vertice 點
+2. Connection 連接
+3. Direction 方向性
+
+## Graph 的標準操作與複雜度
+* 儲存
+上面的圖中有 10 個點 ( vertice )，所以儲存一個 Graph 的成本就是 **O( V + E )**，也就是圖中所有點與邊 ( edge ) 的數量。
+<br/>
+
+* 遍歷 traverse
+可以分為兩種方式，無論哪一種都是 **O( V + E )**：
+  * [depth-first search 深度優先搜尋](https://alrightchiu.github.io/SecondRound/graph-depth-first-searchdfsshen-du-you-xian-sou-xun.html)
+  * [breath-first search 廣度優先搜尋](https://alrightchiu.github.io/SecondRound/graph-breadth-first-searchbfsguang-du-you-xian-sou-xun.html) 
 
 ## Graph Cycle
 當一個途中出現了點與點之間相連，形成一個閉環的情況，稱為 **Graph Cycle**。
