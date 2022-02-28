@@ -6,6 +6,10 @@ Data Structure Learning Notes
 1. http://alrightchiu.github.io/SecondRound/mu-lu-yan-suan-fa-yu-zi-liao-jie-gou.html
 2. https://www.delftstack.com/zh-tw/tutorial/data-structure/
 
+## 參考影片與資源
+![演算法學習路線圖](https://www.youtube.com/watch?v=BkKRSMeqoYA&list=WL&index=49&t=213s)
+* [課程平台](https://www.youtube.com/watch?v=BkKRSMeqoYA&list=WL&index=49&t=213s)
+
 ## 大綱
 
 ### Big O Notation
@@ -30,3 +34,7 @@ Data Structure Learning Notes
 
 ### Tree
 * [10 - Tree](https://github.com/memorykghs/Data-Structure-Notes/blob/main/10%20-%20Tree.md)
+
+## Algorithm
+
+### Greedy Algorithm 貪婪演算法
