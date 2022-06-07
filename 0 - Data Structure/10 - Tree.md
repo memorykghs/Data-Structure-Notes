@@ -3,7 +3,7 @@ Linked List 是一維的線性結構 ( 不是往前、就是往後 )，樹 ( 與
 
 由**Node ( 節點 )** 組成的資料結構，每個節點都包含特定的值 ( value ) 和指向子節點 ( child-nodes ) 的 pointer，如此遞迴形成一個一個的 **subtree** 組成的樹狀結構。
 
-![](/images/10-1.png)
+![](/images/DataStructure/10-1.png)
 
 ## Tree 中的角色
 * **root 根節點**
@@ -19,7 +19,7 @@ Tree 中的第一個節點。
 
 ## 描述 Tree 的元素
 
-![](/images/10-3.png)
+![](/images/DataStructure/10-3.png)
 
 * **degree 分歧度**
 一個 node 擁有的 subtree ( 子樹 ) 的個數。如上圖，root 的 degree 是 2，它擁有 `node 2` 與 `node -7` 兩個後代。
@@ -61,7 +61,7 @@ Tree 實際上是一個有效率的、**connected**、**directed ( 有方向的 
 * Traverse Balanc Tree：**O(log(N))**
   在結構不歪斜的情況下，因為每次都只能選擇一個 subtree ( 從剩下的結果中選擇一半去遍歷 )，要循環所有的 subtree 直到找到結果。<br/>
 
-  ![](/images/10-2.png)
+  ![](/images/DataStructure/10-2.png)
 
 ## Different Type of Tree
 #### Binary Tree 二元樹

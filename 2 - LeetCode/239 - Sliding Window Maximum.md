@@ -111,6 +111,11 @@ public static int[] maxSlidingWindow2(int[] nums, int k) {
 可以分成幾個步驟：
 1. 首先，視窗大小 k 與陣列長度 nums.length，最多最多需要輪 `nums.length - k + 1` 次
 2. 建立一個 Deque 物件，讓這個物件紀錄並更新當前應該要看到的元素的 index
+3. 對 index 跑回圈，在內部判斷：
+  (1) 當有 index 超過當前視窗中開頭的 index，將此 index 移除
+  (2) 比較當前 Deque 中的數字和當前排隊進來要比的數字 ( `nums[i]` )，`nums[i]` 比較大的話，將當前在 Deque 內的數字移除
+  (3) 將 `nums[i]` 加入 Deque
+  (4) 一旦 index 超過 `k - 1`，代表第一輪 window 比大小已經開始了，需要將結果放至 result 陣列中
 
 ## 參考
 * https://leetcode.com/problems/sliding-window-maximum/discuss/65884/Java-O(n)-solution-using-deque-with-explanation

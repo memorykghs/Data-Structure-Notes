@@ -22,7 +22,7 @@ Hash tables 依賴 hash code 來最小化儲存值時會發生的衝突 ( collis
 在上面的 Hash Table 中，`key2`、`key3` 和 `key4` 擁有同樣的 hash code 1
 ；`key7` 和 `key8` 則是有同樣的 hash code 5。
 
-![](/images/6-1.png)
+![](/images/DataStructure/6-1.png)
 
 下面是 Hahs Table 的標準操作與對應的時間複雜度：
 

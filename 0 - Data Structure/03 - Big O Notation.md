@@ -21,7 +21,7 @@ Big O notation 使用傳入的變量表示大小，例如：**O(n)** 可以是�
 * **Exponential**：O(2<sup>n</sup>)<br/>
 * **Factorial**：O(n!)<br/>
 
-![](/images/3-1.png)
+![](/images/DataStructure/3-1.png)
 
 [圖片來源](http://alrightchiu.github.io/SecondRound/complexityasymptotic-notationjian-jin-fu-hao.html)
 <br/>

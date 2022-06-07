@@ -3,7 +3,7 @@
 ## Singly Linked List
 由節點 ( node ) 組成，每個節點都包含一紀錄值的 value 以及記錄下一個節點的 pointer。也就是在 Linked List 中，值跟下一個節點的位置會分別記錄在 `value` 與 `next` 中，最後一個節點的 `next` 會指向 `null`。
 
-![](/images/5-1.png)
+![](/images/DataStructure/5-1.png)
 
 下面是一個單向 Linked List 簡單的示意：
 ```
