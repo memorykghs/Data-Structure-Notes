@@ -10,6 +10,10 @@ Data Structure Learning Notes
 * [演算法學習路線圖](https://www.youtube.com/watch?v=BkKRSMeqoYA&list=WL&index=49&t=213s)
 * [課程平台](https://www.youtube.com/watch?v=BkKRSMeqoYA&list=WL&index=49&t=213s)
 
+## 模板整理參考
+* https://ithelp.ithome.com.tw/articles/10280448
+* https://github.com/greyireland/algorithm-pattern
+
 ## 大綱
 
 [04 - Array](https://github.com/memorykghs/Data-Structure-Notes/blob/main/04%20-%20Array.md)
@@ -26,19 +30,21 @@ Data Structure Learning Notes
 
 [10 - Tree](https://github.com/memorykghs/Data-Structure-Notes/blob/main/10%20-%20Tree.md)
 
-# Template
+## 演算法
 
-# LeetCode
-## Strings
+## 解題思維
+
+## LeetCode
+#### Strings
 * [Reverse Integer](https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/880)
 
 * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-## Array
+#### Array
 * [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 
-## Sliding Window
+#### Sliding Window
 * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-## Greedy
+#### Greedy
 * [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)

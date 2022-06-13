@@ -23,12 +23,13 @@ Backtacking 是一種 DFS ( Depth-First Search，深度優先搜尋 ) 的形式�
 ## 剪枝技巧 ( prune )
 當條件中下一步可選的狀態，可能依照 index 的前後 ( 下一個值的 index 不能小於前一個，需要按照順序 )，就適合使用。可以同時他配 Bottom-up 的搜尋方式較為簡單。
 
-#### 模板
+#### 模板一
 
 適用範例：[1641 - Count Sorted Vowel Strings]()
 
 ## Leetcode 範例
 * [17 - Letter Combinations of a Phone Number]()
+* [39 - Combination Sum](https://leetcode.com/problems/combination-sum/)
 * [46 - Permutations]()
 * [1641 - Count Sorted Vowel Strings]()
 
