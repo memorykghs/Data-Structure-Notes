@@ -65,5 +65,43 @@ public static ListNode removeNthFromEnd(ListNode head, int n) {
 }
 ```
 
+## 寫的第二遍
+![](/images/LeetCode/19-1.png)
+```java
+public static ListNode removeNthFromEnd(ListNode head, int n) {
+
+    // 當長度為 1 時，直接回傳 null
+    if (head.next == null) {
+        return null;
+    }
+
+    // 建立 dummy node，避免被移除掉的是第一個 node
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+
+    // 取得距離 head node n 單位的 node
+    int i = 1;
+    ListNode nth = dummy;
+
+    while (i <= n) {
+        nth = nth.next;
+        System.out.print(nth.val);
+        i++;
+    }
+
+    // 跑回圈判斷是否已經到尾端
+    ListNode current = dummy;
+    while (nth.next != null) {
+        current = current.next;
+        nth = nth.next; 
+    }
+
+    // 移除掉由後數來第 n 個，也就是 current.next
+    current.next = current.next.next;
+
+    return dummy.next;
+}
+```
+
 ## 參考
 * https://www.youtube.com/watch?v=XVuQxVej6y8
