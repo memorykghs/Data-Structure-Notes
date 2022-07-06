@@ -1,6 +1,8 @@
 # Floyd Cycle Detection Algorithm 龜兔賽跑演算法
 * 主要是用來判斷 Linked List ( 鏈接串列 ) 中是否存在 cycle ( 環 ) 並找出環的起始點及算出 cycle 的長度
 
+* 也可以用來找出 Linked List 位於中位數位置的 node
+
 ## 方法
 1. 使用 Two Pointers：
   * `fast` - 代表兔子，每次移動 2 步
