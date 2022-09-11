@@ -1,4 +1,52 @@
 # 03 - Big O Notation & Logarithm 對數
+
+* [Complexity：Asymptotic Notation(漸進符號)](http://alrightchiu.github.io/SecondRound/complexityasymptotic-notationjian-jin-fu-hao.html)
+
+## Outline
+* Why use Big O?
+* Asymptotic Notaion 漸進符號
+* Big O Notation
+  Space Complexity 空間複雜度、Time Complexity 時間複雜度
+  * Complexity 複雜度
+  * Drop the Contents and Non-Dominant Terms ~~丟掉~~刪除常量及非主導項
+  * 小結
+* 實際案例
+  * O(1)
+  * O(n)
+  * Multi-Part Algorithms: Add vs. Multiply 複合演算法
+  * Amortized Time 平攤時間
+  * Log(n)
+  * Recirsive Runtimes 遞迴運行
+* 練習 (16題)
+
+## Why use Big O?
+當我們需要比較每個演算法的成本時，我們會將每個演算法的工作效率透過函數轉換**複雜度 ( Complexity )**。而在評估演算法的複雜度時，通常使用**漸進符號 ( Asymptotic Notaion )** 來評估。
+
+舉個例子，當你想要在家看某部影片時，你可能有兩種取得影片的方式：租 DVD 或是在網路上下載。這兩個動作的成本大致如下：
+
+* 網路上下載 ( `O(n)` )：`n` 代表文件大小，因為下載的時候傳輸時間會隨著影大小線性增加
+* 租 DVD ( `O(1)` )：即便考慮到影片大小，除非數量太多，否則止需要出門一次去拿
+
+因此：
+
+* Big O 代表了某些成本(包含運算時間與記憶體空間)，通常會和「待處理的資料量」有關，當資料量越大，成本會以某種關係 ( 線性、指數等等 ) 跟著提高。
+
+* 當資料量大時，演算法的效率很重要。
+
+## Asymptotic Notaion 漸進符號
+有 5 種線性符號：
+
+* `O` − Notation，Big-O
+一般談論的演算法之複雜度，經常是指Big-O，因為在估算成本時，最想知道的是「上界 ( upper bound )」。簡單來說，就是指「最差」的情況所花費的成本。
+<br/>
+
+* `Ω` - Notation，Big-Omega
+若想知道某個演算法「至少」需要多少時間時，便可以Big-Omega來估算「下界(lower bound)」。跟 `O` 相反，希望獲得「最好」的情況所花費的成本。
+<br/>
+
+* `Θ` −Notation，Big-Theta
+  所有能夠描述演算法趨勢的「函數之集合」。也就是說如果複雜度既是 `O(n)` 也是 `Ω(n)`，擇其函式算法可以被視為 `Θ(n)`。
+
 ## Big O Notation
 Big O 是幫助我們描述某個操作花費的成本，包括：
 * **時間複雜度 Time Complexity**
@@ -8,8 +56,105 @@ Big O 是幫助我們描述某個操作花費的成本，包括：
 * **空間複雜度 Space Complexity**
 衡量演算法占用多少輔助內存。
 
-Big O notation 使用傳入的變量表示大小，例如：**O(n)** 可以是便利一個長度為 **n** 的陣列所需的時間複雜度；**O(n + m)** 也有可能是變歷某個長度為 **n**、集合內的每個個字串的長度為 **m** 的陣列。
+Big O notation 使用傳入的變量表示大小，例如：
+1. **O(n)** 可以是便利一個長度為 **n** 的陣列所需的時間複雜度
+2. **O(n + m)** 也有可能是變歷某個長度為 **n**、集合內的每個個字串的長度為 **m** 的陣列。
+<br/>
 
+### Complexity 複雜度
+###### 範例 1
+下面的這個遞迴 ( recursive ) 將會花費 `O(n)` 的時間複雜度以及 `O(n)` 的空間複雜度。
+
+```java
+/* Ex. 1 */
+int sum(int n ){
+  if(n <= 0){
+    return 0;
+  }
+
+  return n + sum(n-1);
+}
+```
+
+根據執行的順序，假設我們呼叫 `sum(4)`，那麼記憶體中的堆疊棧 ( stack ) 將會長的像下面這樣，每個調用 ( call ) 都會被放到 stack 中：
+```
+1 sum(4)
+2   -> sum(3)
+3     -> sum(2)
+4       -> sum(1)
+5         -> sum(0)
+```
+
+上面的例子是因為調用了 `n` 次，所以它的空間複雜度是 `O(n)`。
+
+**但!!! However!!! しかし!!!**
+
+**不代表只要調用 `n` 次，它實際所花的空間複雜度就是 `O(n)`。**
+
+讓我看再來看看第二個例子：
+
+###### 範例 2
+```java
+/* Ex. 2 */
+int pairSumSequence(int n){
+  int sum = 0;
+
+  for(int i = 0; i < n; i++){
+    sum += pairSum(i, i + 1);
+  }
+  return sum;
+}
+
+int pairSUm(inta, intb){
+  return a + b;
+}
+```
+
+對於 `pairSum()` 來說，它會被調用 `O(n)` 次，但這些調用並不會同時存在於 stack 中，所以它的空間複雜度是 `O(1)`。
+
+
+### Drop the Contents and Non-Dominant Terms ~~丟掉~~刪除常量及非主導項
+在這些複雜度的表示中，其實不不會看到 `O(2n)` 或是 `O(5)` 的複雜度。對於特定的輸入，像是複雜度為 `O(n)` 的程式碼很有可能較 `O(1)` 的程式碼更有效率。
+
+所以我們真正關心的是，**當處理的資料量 `n` 變大時，程式運行時需要花費成本的增長量**，可以想像成當 `n → ∞` 時最差需要花費多少的時間以及空間複雜度。
+
+舉個例子來說，有一個 f(n) = 2n<sup>2</sup> + 6n + 1，當 `n` 增加時，其實後面的 6n + 1 對我們來說就不是非常的重要，因為我們要的是"最差"的情況，只需要看 2n<sup>2</sup> 的部分。
+
+接下來，同理，當 `n` 增加， f(n) = 2n<sup>2</sup> 中的常數 2，跟 n x n<sup>2</sup> 比較，它也不是影響增長量的關鍵因素，所以也可以捨去。
+
+###### 範例 3
+比較下面兩組程式碼，哪一個執行更快?
+
+```java
+/* fist */
+int min = Integer.MAX_VALUE; 
+int max = Integer.MIN_VALUE; 
+
+for (int x ： array) {
+  if (x < min) min x; 
+  if (x > max) max = x;
+}
+```
+
+```java
+/* second */
+int min = Integer.MAX_VALUE; 
+int max = Integer.MIN_VALUE; 
+
+for (int x ： array) {
+  if (x < min) min x; 
+}
+
+for (int x ： array) {
+  if (x > max) max = x;
+}
+```
+* 第一個因為只跑了一個迴圈，所以其複雜度為 `O(n)`
+* 第二個因為跑了兩次的迴圈，其複雜度為 `O(n^2)`
+
+不過這也不代表 `O(n)` 一定比 `O(n^2)` 來得有效率。
+
+### 小結
 以下是常見的 Big O notation，由最快到最慢的順序為： 
 
 * **Constant**：O(1)<br/>
@@ -26,30 +171,162 @@ Big O notation 使用傳入的變量表示大小，例如：**O(n)** 可以是�
 [圖片來源](http://alrightchiu.github.io/SecondRound/complexityasymptotic-notationjian-jin-fu-hao.html)
 <br/>
 
-## 為何是 O(1)? 1 代表什麼意思?
+想要知道其他的時間複雜度，可以參考：
+* [Big O Cheat Sheet](https://www.hackerearth.com/practice/notes/big-o-cheatsheet-series-data-structures-and-algorithms-with-thier-complexities-1/)
 
+![](/images/DataStructure/3-3.png)
+
+## 實際案例
+### O(1)
+> 為何是 O(1)? 1 代表什麼意思?
+
+
+```java
+int array = new int[] {1, 2, 3};
+
+// 取得特定 index 的成本為 O(1)
+int x = array[1];
+```
+
+### O(n)
+```java
+// 將資料放入一個長度為 5 的陣列，其時間複雜度為 O(n)
+// 因為根據陣列長度 n 影響成本
+int[] array = new int[5];
+
+for(int i = 0; i < 4; i++){
+  int[i] = i;
+}
+```
+
+### Multi-Part Algorithms: Add vs. Multiply 複合演算法
+假設有一個分為兩個步驟的演算法，什麼情況下需要乘上 runtimes 成本而什麼時候需要相加呢?下面提供了一些範例。
+
+###### O(A + B)
+```java
+for(int a : arrA){
+  print(a);
+}
+
+for(int b : arr B){
+  print(b);
+}
+```
+
+###### O(A * B)
+```java
+for(int a : arrA){
+  for(int b : arr B){
+    print(a + "," + b);
+  }
+}
+```
+
+### Amortized Time 平攤時間
+首先必須知道：
+* Array 的長度一旦被用完，就需要重新手動建立一個新的更長的 Array 來裝資料
+* ArrayList 則是在資料裝滿後，會由底層的機制自動擴展長度
+
+![](/images/DataStructure/3-4.png)
+
+所以以一個 ArrayList 來說：
+* 建立一個長度為 `n` 的 ArrayList，最終所需的空間複雜度為：
+  ```
+  O(1) + O(2) + O(4) + O(8) + ... + O(n)
+  ```
+
+* 但由於不是每一塞資料都需要複製原本的資料再放到新的資料結構當中，所以由初始長度為 `1` 的陣列到長度為 `n` 的陣列，其平均的花費成本為：
+  ```
+  n + n/2 + n/4 + n/8 + ... 1 ≈ n
+  ```
+
+### Log(n)
+平常看到的 `O(log(n))` 是怎麼來的?
+
+以二元搜尋數為例，在二元搜尋法中，想要在 `n` 有序元素中查找元素 `x`，首先會先找出該元素中找出中位數 ( middle )，接著判斷：
+
+```java
+if(x == middle) {
+  return x;
+
+} else if(x < middle>) {
+  // 往 tree 的左半部搜索
+} else {
+  // 往 tree 的右半部搜索
+}
+```
+
+示意圖：
+![](/images/DataStructure/3-5.png)
+
+
+```
+search 9 within {1, 5, 8, 9, 11, 13, 15, 19, 21} 
+	compare 9 to 11 -> smaller.
+	search 9 within {1, 5, 8, 9, 11}
+		compare 9 to 8 -> bigger
+		search 9 within {9, 11}
+			compare 9 to 9
+			return
+```
+
+也就是每往下一步，需要搜尋的元素就會剩下 `n/2`，再往下一步就會變成 `n/4`。當找到目標值或是只上下最後的 leaf node 時就會停止。所以總運行時間取決於我們執行多少次往下尋找的步驟，直到 `n` 變為 `1`。
+
+```
+N = 16
+N = 8 	/* divide by 2 */ 
+N = 4 	/* divide by 2 */ 
+N = 2 	/* divide by 2 */ 
+N = 1 	/* divide by 2 */ 
+```
+
+反過來看，也就是幾個階層可以由 `2` 到達 `n`，每一個階層增加的量都是兩倍。這個就等同於 log 的定義 `log₂(n)`。
+
+```
+N = 1 
+N = 2 	/* multiply by 2 */
+N = 4 	/* multiply by 2 */
+N = 8 	/* multiply by 2 */
+N = 16 	/* multiply by 2 */
+```
+
+> p.s. 在計算機科學中，log 的底數是 2 而不是 10
+
+### Recirsive Runtimes 遞迴運行
+這段程式碼的複雜度是多少呢?
+
+```java
+int f(int n) {
+  if (n <= 1) {
+    return 1;
+  }
+  return f(n - 1) + f(n - 1);
+}
+```
+
+假設我們現在調用 `f(4)`，那麼它被調用的 stack 大致上可以畫成下面這樣。
+
+![](/images/DataStructure/3-6.png)
+
+這個 Tree 的深度為 `n`，每個 node 有兩個子節點 ( 因為被調用兩次 )，所以每一層調用的次數都是上一層的兩倍。
+
+![](/images/DataStructure/3-7.png)
+
+即每一次的調用結果，均為下一層的調用結果乘以 2。因此共有 2<sup>0</sup> + 2<sup>1</sup> + 2<sup>3</sup> + 2<sup>4</sup> + ... + 2<sup>n</sup> ( = 2<sup>n + 1</sup> - 1  個節點 )
+
+在這個情況下我們可以得到 `O(2^n)`。
+
+不過該算法的空間複雜度其實是 `O(n)`，因為雖然我們在樹中總共有 `O(2n)` 個節點，但在搜尋時實際上只會走其中一條，其複雜度為 `O(n)`。
+
+---
+## Practice 練習
 
 ## 重點整理
 * Big O notation 通常是用來描述 **最壞 ( worst-case )** 狀況下所需的成本。
- 
 
+---
 
-For example, some sorting algorithms have different time complexities
-depending on the layout of elements in their input array. In rare cases, their
-time complexity will be much worse than in more common cases. Similarly, an
-algorithm that takes in a string and performs special operations on uppercase
-characters might have a different time complexity when run on an input string
-of only uppercase characters vs. on an input string with just a few uppercase
-characters.
-
-
-Thus, when describing the time complexity of an algorithm, it can sometimes be
-helpful to specify whether the time complexity refers to the average case or
-to the worst case (e.g., "this algorithm runs in O(nlog(n)) time on average
-and in O(n<sup>2</sup>) time in the worse case").
-
-
-## Logarithm 對數
+## Logarithm 對數 (補充)
 * 在一般數學而言，對數的定義是 ：
 **log<sub>b</sub>(x) = y** if and only if **b<sup>y</sup> = x**
 <br/>
@@ -58,7 +335,7 @@ and in O(n<sup>2</sup>) time in the worse case").
 **log(n) = y** if and only if **2<sup>y</sup> = n**
 <br/>
 
-* 簡單來說，當某個演算法具有對數時間複雜度 ( logarithmic time complexity ) ( **O(log(n))**，其中 **n** 為輸入的變數 )，**n** 變成兩倍，對其而言所需的操作僅僅只是加上了一次。
+* 簡單來說，當某個演算法具有對數時間複雜度 ( logarithmic time complexity )  **(O (log(n))**，其中 **n** 為輸入的變數 )，**n** 變成兩倍，對其而言所需的操作僅僅只是加上了一次。
   
   $2^4 = 16$ &rArr; $log(16) = 4$
   將 $16 * 2$ 後得到 32，取對數 $log(32) = 2^4 * 2$ 的結果是 5，僅僅只多加了一次

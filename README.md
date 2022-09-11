@@ -2,6 +2,9 @@
 Data Structure Learning Notes
 ---
 
+## 書籍
+* [CtCI-6th-Edition-CN](https://github.com/F8F-1BearCat/CtCI-6th-Edition-CN/blob/master/VI.Big_O.md)
+
 ## 系列文章
 1. http://alrightchiu.github.io/SecondRound/mu-lu-yan-suan-fa-yu-zi-liao-jie-gou.html
 2. https://www.delftstack.com/zh-tw/tutorial/data-structure/

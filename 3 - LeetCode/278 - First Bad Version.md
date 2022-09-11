@@ -21,6 +21,8 @@
 在這個問題當中會提供一個用來確認現在的版本是否是壞掉的的 API `boolean isBadVersion(version)` 來幫助你判斷，你需要做的就是 call 越少次 API 越好。
 
 ## Well Solution
+用二元搜尋法會比一個一個跑回圈來的快。
+
 ```java
 public int firstBadVersion(int n) {
     // 題目意在找出第一個壞掉的產品，用二元樹搜尋法會比一個一個跑迴圈快
