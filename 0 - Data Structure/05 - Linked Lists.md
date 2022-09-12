@@ -48,3 +48,7 @@ null <- 0 <-> 1 <-> 2 <-> 3 <-> 4 <-> 5 -> null
 
 ## Circular Linked List
 沒有明確的起始與結束節點，因為此結構的 `tail` 會指向 `head` 形成一個封閉的圓圈。而循環 Linked List 可以是單向或雙向。
+
+## LeetCode
+#### Medium
+* [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)

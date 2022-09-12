@@ -35,19 +35,18 @@ Data Structure Learning Notes
 
 ## 演算法
 
-## 解題思維
+#### Tree and Graph
+* Binary Tree Traversal 二元樹遍歷
+* Preorder Traversal 前序遍歷
+* Inorder Traversal 中序遍歷
+* Postorder Traversal 後序遍歷
+<br/>
+
+* Binary Search 二元樹搜尋
+* Depth-first Search 深度優先搜尋
+* Breath-first Search 廣度優先搜尋
 
 ## LeetCode
-#### Strings
-* [Reverse Integer](https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/880)
+* [My LeetCode List (Excel)](https://docs.google.com/spreadsheets/d/16Dud-qpKlIaC1oQ5akCpHIXnYvVwXTSyTep5d12UMbA/edit?usp=sharing)
 
-* [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-
-#### Array
-* [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
-
-#### Sliding Window
-* [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-
-#### Greedy
-* [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+* [My LeetCode List (Notion)](https://rhetorical-cheese-1ce.notion.site/35978c41fdf44bcc9fab50caca9e5af2?v=301adb4d585949a69a30f3ba8ab541f1)
