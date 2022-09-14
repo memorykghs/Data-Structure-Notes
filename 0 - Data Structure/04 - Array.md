@@ -32,3 +32,12 @@
 而動態的 array 是預先分配兩倍的內存記憶體來儲存值，對 array 插入值是一個恆定時間的操作 ( constant-time operation )，直到分配的記憶體位址被填滿。當沒有空的記憶體位置時，就會先複製現有的陣列到新的記憶體位置，並且將長度擴展為現有的兩倍，再將新的值寫入，此操作的平均成本如下：
 
 ![](/images/DataStructure/4-3.png)
+
+## ArrayList vs. Queue
+> A **Collection** is a container for grouping objects together.
+> A **List** is an _ordered_ Collection of objects.
+> A **Queue** is a Collection of objects _accessed_ in the order they're insterted.
+> An **ArrayList** is a List of object whose elements can be accessed _randomly_.
+
+* https://www.quora.com/What-the-difference-between-a-queue-list-collection-and-ArrayList-in-Java
+
