@@ -241,7 +241,7 @@ for(int a : arrA){
   ```
 
 ### Log(n)
-平常看到的 `O(log(n))` 是怎麼來的?
+平常看到的 `O(log n)` 是怎麼來的?
 
 以二元搜尋數為例，在二元搜尋法中，想要在 `n` 有序元素中查找元素 `x`，首先會先找出該元素中找出中位數 ( middle )，接著判斷：
 
@@ -320,6 +320,195 @@ int f(int n) {
 
 ---
 ## Practice 練習
+
+###### Ex.3
+```java
+void printUnorderedPairs(int[] array) {
+  for (int i = 0; i < array.length; i++) {
+    for (int j = i + 1; j < array.length; j++) {
+      System.out.println(array[i] + "," + array[j]);
+    }
+  }
+}
+```
+![](/images/DataStructure/3-8.png)
+
+Ans. O(n<sup>2</sup>)
+
+###### Ex.4
+```java
+void printUnorderedPairs(int[] arrayA, int[] arrayB) {
+  for (int i = 0; i < arrayA.length; i++) {
+    for (int j = 0; j < arrayB.length; j++) {
+      if (arrayA[i] < arrayB[j]) {
+        System.out.println(arrayA[i] + "," + arrayB[j]);
+      }
+    }
+  }
+}
+```
+Ans. O(n*m)
+
+###### Ex.7
+Which of the following are equivalent to O(n)? Why?
+(A) `O(n + p), where p < n/2`
+(B) `O(2n)`
+(C) `O(n + log n)`
+(D) `O(n + m)`
+
+Ans. (A)(B)(C)
+
+(D) 則是因為 `m` 跟 `n` 沒有顯著關係，所以 `m` 仍然要留著。
+
+###### Ex.8
+假設我們現在要對一個陣列內單獨每個字串排序，再對這個陣列進行排序，整體的運行時間是多少?
+
+不少人應該會這樣回答：
+* 對陣列中每個字串進行排序：`O(n log n)`，所以整體排序間應該是 `O(n*n log n)`
+* 對陣列進行排序：`O(n log(n))`
+
+因此總時間應該是 `O(n*n log n + n log n)` = `O(n*n log n)`。
+
+不過由於不確定陣列內的字串長度與陣列長度是否一樣，所以建議用不同的代號區分。像是 `s` 代表字串長度，`a` 代表陣列長度，所以整體而言其運行時間應該是 `O(a*s (log a + log s))`。
+
+###### Ex.9
+
+###### Ex.10
+假設要檢查一個數字是不是質數，可以像下面這樣做：
+```java
+boolean isPrime(int n) {
+  for (int x = 2; x * x <= n; x++) {
+    if (n % X == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+例子一：
+```
+assume n = 15
+
+x = 2
+  15 % 2 = 1
+x = 3 
+  15 % 3 = 0
+  return false 
+```
+
+例子二：
+```
+assume n = 17
+
+x = 2
+  15 % 2 = 1
+x = 3 
+  15 % 3 = 2
+x = 4
+  17 % 4 = 1
+x = 5
+  因超過 for loop 限制，loop 結束
+  return true;
+```
+
+實際上我們只會花 `O(√n)` 處理。
+
+###### Ex.11
+```java
+int factorial(int n) {
+  if (n < 0) {
+    return -1;
+  } else if (n == 0) { 
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+```
+
+![](/images/DataStructure/3-9.png)
+
+後一個的值等於是前面的已知值相加，按照此推法，想要知道 `f(3)` 就要先知道 `f(1)` 和 `f(2)` 是多少，同理想要知道 `f(n)` 是多少，就要先跑 `n-1` 次來獲得 `f(n-1)` 的值。
+
+所以其運行時間為 `O(n)`。
+
+###### Ex.12
+
+###### Ex.13
+Nth Fibonacci number ( 費式數列 )。
+```java
+int fib(int n) {
+  if (n <= 0) {
+    return 0;
+  } else if (n == 1) {
+    return 1; 
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+```
+
+要知道 `fib(n)` 需要先知道 `fib(n - 1)` 和 `fib(n - 2)`。而 `fib(n - 1)` 和 `fib(n - 2)` 也各自需要 `fib(n - 2) + fib(n - 3)` 和 `fib(n - 3) + fib(n - 4)`，等於說想知道某一個階層的值需要花費兩次的成本呼叫函式。
+
+![](/images/DataStructure/3-9.png)
+
+所以其整體成本為 `O(2^n)`。
+
+可參考[淺談演算法複雜度與費波那契數列](https://tw.coderbridge.com/series/cfe509b1adfd4b02ac1c0705ff28c28c/posts/d1b8cecacb774b3e90307f8e8813ab33)
+
+###### Ex.15
+費波那契數列演算法的優化，使用 cache。
+
+```java
+void allFib(int n) {
+  for (int i = 0; i < n; i++) {
+    System.out.println(i + "： "+ fib(i));
+  }
+}
+
+int fib(int n) {
+  if (n <= 0) return 0;
+  else if (n == 1) return 1;
+  return fib(n - 1) + fib(n - 2);
+}
+```
+因只需要遍歷一次即可從 cache 中拿到想要的值，因此為 `O(n)`。
+
+###### Ex.16
+```java
+int powers0f2(int n) {
+  if (n < 1) {
+    return 0;
+  } else if (n == 1) {
+    System.out.println(1);
+    return 1;
+  } else {
+    int prev = powers0f2(n / 2); 
+    int curr = prev * 2; 
+    System.out.println(curr); 
+    return curr;
+  } 
+}
+```
+```
+powers0f2(50)
+	-> powers0f2(25)
+ 		-> powers0f2(12)
+			-> powers0f2(6)
+				-> powers0f2(3)
+					-> powersOf2(1)
+						-> print & return 1 
+					print & return 2
+				print & return 4 
+			print & return 8
+		print & return 16 
+	print & return 32
+```
+
+說明大概就像是下面這樣，所以是 `O(log n)`。
+
+![](/images/DataStructure/3-10.png)
 
 ## 重點整理
 * Big O notation 通常是用來描述 **最壞 ( worst-case )** 狀況下所需的成本。
