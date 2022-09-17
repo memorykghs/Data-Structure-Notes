@@ -4,7 +4,7 @@
 
 ## Outline
 * Why use Big O?
-* Asymptotic Notaion 漸進符號
+* Asymptotic Notation 漸進符號
 * Big O Notation
   Space Complexity 空間複雜度、Time Complexity 時間複雜度
   * Complexity 複雜度
@@ -16,7 +16,7 @@
   * Multi-Part Algorithms: Add vs. Multiply 複合演算法
   * Amortized Time 平攤時間
   * Log(n)
-  * Recirsive Runtimes 遞迴運行
+  * Recursive Runtimes 遞迴運行
 * 練習 (16題)
 
 ## Why use Big O?
@@ -33,7 +33,7 @@
 
 * 當資料量大時，演算法的效率很重要。
 
-## Asymptotic Notaion 漸進符號
+## Asymptotic Notation 漸進符號
 有 5 種線性符號：
 
 * `O` − Notation，Big-O
@@ -126,7 +126,7 @@ int pairSUm(inta, intb){
 比較下面兩組程式碼，哪一個執行更快?
 
 ```java
-/* fist */
+/* first */
 int min = Integer.MAX_VALUE; 
 int max = Integer.MIN_VALUE; 
 
@@ -292,7 +292,7 @@ N = 16 	/* multiply by 2 */
 
 > p.s. 在計算機科學中，log 的底數是 2 而不是 10
 
-### Recirsive Runtimes 遞迴運行
+### Recursive Runtimes 遞迴運行
 這段程式碼的複雜度是多少呢?
 
 ```java
