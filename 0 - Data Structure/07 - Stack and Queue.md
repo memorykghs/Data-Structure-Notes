@@ -24,3 +24,6 @@ Queue 則較常以一群人在排隊做為比喻，第一個排隊的人是第�
 * **Searching for an element in the queue**: O(n)
 
 通常以 **Doubly Linked List** 實作。
+
+## 實作
+* https://openhome.cc/Gossip/Java/Queue.html

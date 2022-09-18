@@ -57,7 +57,7 @@ Big O 是幫助我們描述某個操作花費的成本，包括：
 衡量演算法占用多少輔助內存。
 
 Big O notation 使用傳入的變量表示大小，例如：
-1. **O(n)** 可以是便利一個長度為 **n** 的陣列所需的時間複雜度
+1. **O(n)** 可以是遍歷一個長度為 **n** 的陣列所需的時間複雜度
 2. **O(n + m)** 也有可能是變歷某個長度為 **n**、集合內的每個個字串的長度為 **m** 的陣列。
 <br/>
 
@@ -105,7 +105,7 @@ int pairSumSequence(int n){
   return sum;
 }
 
-int pairSUm(inta, intb){
+int pairSum(inta, intb){
   return a + b;
 }
 ```
@@ -150,7 +150,7 @@ for (int x ： array) {
 }
 ```
 * 第一個因為只跑了一個迴圈，所以其複雜度為 `O(n)`
-* 第二個因為跑了兩次的迴圈，其複雜度為 `O(n^2)`
+* 第二個因為跑了兩次的迴圈，其複雜度為 `O(2n)`
 
 不過這也不代表 `O(n)` 一定比 `O(n^2)` 來得有效率。
 
@@ -239,6 +239,14 @@ for(int a : arrA){
   ```
   n + n/2 + n/4 + n/8 + ... 1 ≈ n
   ```
+
+```java
+List list = new ArrayList<>();
+
+for(int i = 0; i < 4; i++){
+  list.add(i);
+}
+```
 
 ### Log(n)
 平常看到的 `O(log n)` 是怎麼來的?
@@ -372,6 +380,21 @@ Ans. (A)(B)(C)
 不過由於不確定陣列內的字串長度與陣列長度是否一樣，所以建議用不同的代號區分。像是 `s` 代表字串長度，`a` 代表陣列長度，所以整體而言其運行時間應該是 `O(a*s (log a + log s))`。
 
 ###### Ex.9
+```java
+int sum(Node node) {
+  if (node == null) {
+    return 0;
+  }
+  return sum(node.left) + node.value + sum(node.right);
+}
+```
+
+原本的 Binary Tree 操作時間為 `log n`，如下。
+![](/images/DataStructure/3-11.png)
+
+但因為上面的程式碼需要取得左右兩邊子節點的值相加，所以等於是遍歷了整顆 Tree。
+
+不懂的可以看這段簡單的[影片](https://www.youtube.com/watch?v=b060MHQwUEE)xD
 
 ###### Ex.10
 假設要檢查一個數字是不是質數，可以像下面這樣做：
