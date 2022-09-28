@@ -33,5 +33,30 @@ public int maxSubArray(int[] nums) {
 }
 ```
 
+後來又寫到了一次，覺得動態規劃的方式比較好。
+```java
+public int maxSubArray(int[] nums) {
+    if(nums.length == 0) {
+        return 0;
+    }
+    
+    // base case
+    int previousSum = nums[0];
+    int currentSum = 0;
+    int result = previousSum;
+    
+    for(int i = 1; i < nums.length; i++) {
+        // dp[i] = Math.max(nums[i], nums[i] + dp[i-1]
+        currentSum = Math.max(nums[i], nums[i] + previousSum);
+        previousSum = currentSum;
+        
+        // 計算最大結果
+        result = Math.max(result, currentSum);
+    }
+    
+    return result;
+}
+```
+
 ## 參考
 * https://www.youtube.com/watch?v=5WZl3MMT0Eg

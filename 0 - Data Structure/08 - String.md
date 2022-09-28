@@ -23,4 +23,8 @@ String 的標準操作與對應的時間複雜度：
 所以當遇到需要串接多個字串或是替換掉字串中的某個字元時，通常會建議先將字串 `split()` 變成 array 後在使用其方法進行操作，因為 array 的 set 與 get 都是 O(n)，copy 也是 O(n)。
 
 ## LeetCode
+
+#### Easy
 * [Reverse Integer](https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/880)
+
+* [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
