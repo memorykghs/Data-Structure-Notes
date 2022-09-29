@@ -17,6 +17,9 @@ Data Structure Learning Notes
 * https://ithelp.ithome.com.tw/articles/10280448
 * https://github.com/greyireland/algorithm-pattern
 
+## 題庫
+* https://seanprashad.com/leetcode-patterns/
+
 ## 大綱
 
 [04 - Array](https://github.com/memorykghs/Data-Structure-Notes/blob/main/04%20-%20Array.md)
