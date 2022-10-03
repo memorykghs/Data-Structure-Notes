@@ -371,6 +371,14 @@ Ans. (A)(B)(C)
 ###### Ex.8
 假設我們現在要對一個陣列內單獨每個字串排序，再對這個陣列進行排序，整體的運行時間是多少?
 
+```
+['apple', 'elephant', 'banana']
+
+['aelpp', 'aeelhntp', 'aaabnn']
+
+['aaabnn', 'aeelhntp', 'aelpp']
+```
+
 不少人應該會這樣回答：
 * 對陣列中每個字串進行排序：`O(n log n)`，所以整體排序間應該是 `O(n*n log n)`
 * 對陣列進行排序：`O(n log(n))`
@@ -485,15 +493,19 @@ int fib(int n) {
 
 ```java
 void allFib(int n) {
+  int[] memo = new int[n + 1];
   for (int i = 0; i < n; i++) {
-    System.out.println(i + "： "+ fib(i));
+    System.out.println(i + "： " + fib(i, memo));
   }
 }
 
-int fib(int n) {
+int fib(int n, int[] memo) {
   if (n <= 0) return 0;
   else if (n == 1) return 1;
-  return fib(n - 1) + fib(n - 2);
+  else if (memo[n] > 0) return memo[n];
+
+  memo[n]= fib(n - 1, memo) + fib(n - 2, memo);
+  return memo[n];
 }
 ```
 因只需要遍歷一次即可從 cache 中拿到想要的值，因此為 `O(n)`。

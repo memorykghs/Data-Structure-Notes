@@ -1,11 +1,5 @@
 # Array
 
-## Level
-#### Medium
-* [Battleships in a Board (Depth-First Search)](https://leetcode.com/problems/battleships-in-a-board/)
-* [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
-
-
 ## Type
 #### Find Duplicate
 * [Contains Duplicate (Easy)](https://leetcode.com/problems/contains-duplicate/)
@@ -16,3 +10,14 @@
 
 * [Find All Duplicates in an Array (Medium)](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 空間複雜度要求 O(1)，使用修改原陣列的方式解決
+
+#### Math Theory
+
+* [Count Primes](https://leetcode.com/problems/count-primes/)
+
+---
+
+## Others
+#### Medium
+* [Battleships in a Board (Depth-First Search)](https://leetcode.com/problems/battleships-in-a-board/)
+* [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
