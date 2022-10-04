@@ -12,7 +12,9 @@
 初始想法也是想說找到中位數...但不知道怎麼找。
 
 ## Well Solution
-1. 一樣利用歸路賽跑演算法找到中間的 node ( `fast` pointer 下一個為 `null` 時 )
+
+#### Method 1
+1. 一樣利用龜兔賽跑演算法找到中間的 node ( `fast` pointer 下一個為 `null` 時 )
 2. reverse 另一半的 node
 3. 一個從尾端回來 ( 前一步驟 reverse 的 Linked List )，一個從 `head` 開始比對 
 
@@ -52,6 +54,41 @@ public boolean isPalindrome(ListNode head) {
     return true;
 }
 ```
+
+![](/images/LeetCode/234-1.png)
+
+#### Method 2
+1. 利用 Stack 的資料結構，先遍歷整個 Linked List 並將值放入 Stack 中。
+2. 然後在遍歷一次，比對 Linked List 與 Stack `pop()` 出來的值是否一致，藉此判斷此 Linked List 是 Palindrome
+
+參考：https://www.educative.io/answers/checking-if-a-linked-list-is-a-palindrome
+
+
+但是，這個方法的效率...極差XD
+
+```java
+public boolean isPalindrome(ListNode head) {
+    Stack<Integer> stack = new Stack<>();
+    ListNode tempHead = head;
+    
+    while(tempHead != null) {
+        stack.push(tempHead.val);
+        tempHead = tempHead.next;
+    }
+    
+    while(head != null) {
+        int num = stack.pop();
+        
+        if(num != head.val) {
+            return false;
+        }
+        head = head.next;
+    }
+    return true;
+}
+```
+
+![](/images/LeetCode/234-2.png)
 
 ## 參考
 * https://www.youtube.com/watch?v=yOzXms1J6Nk
