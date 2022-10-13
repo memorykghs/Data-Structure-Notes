@@ -130,10 +130,13 @@ class Solution {
 			list.add(i, nums[index]);
 
 			recursion(returnList, list, nums, index + 1);
-        }
+		}
 	}
 }
 ```
 
 ## 參考
 * https://leetcode.com/explore/interview/card/top-interview-questions-medium/109/backtracking/795/discuss/18239/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partioning)
+
+#### 影片
+* https://www.youtube.com/watch?v=s7AvT7cGdSo
