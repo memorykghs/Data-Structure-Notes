@@ -55,5 +55,43 @@ public static List<Integer> spiralOrder(int[][] matrix) {
 }
 ```
 
+## Second Try
+大部分都有自己想出來，不過那個等號 debug de 很久xD
+
+![](/images/LeetCode/54-2.png)
+
+```java
+public List<Integer> spiralOrder(int[][] matrix) {
+
+    int left = 0, right = matrix[0].length - 1;
+    int top = 0, bottom = matrix.length - 1;
+
+    List<Integer> result = new ArrayList<>();
+
+    while (top <= bottom && left <= right) {
+        for (int i = left; i <= right; i++) {
+            result.add(matrix[top][i]);
+        }
+        top++;
+
+        for (int i = top; i <= bottom; i++) {
+            result.add(matrix[i][right]);
+        }
+        right--;
+
+        for (int i = right; i >= left; i--) {
+            result.add(matrix[bottom][i]);
+        }
+        bottom--;
+
+        for (int i = bottom; i >= top; i--) {
+            result.add(matrix[i][left]);
+        }
+        left++;
+    }
+    return result;
+}
+``` 
+
 ## 參考
 * https://www.youtube.com/watch?v=BJnMZNwUk1M

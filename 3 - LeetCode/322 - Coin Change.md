@@ -85,7 +85,8 @@ public int coinChange(int[] coins, int amount) {
     Arrays.fill(dp, Integer.MAX_VALUE); // 先塞值
     dp[0] = 0;
 
-    for (int amt = 1; amt <= amount; amt++) {
+    // amt 為每次變動要計算的 $$，直到達到目標 amount
+    for (int amt = 1; amt <= amount; amt++) { 
         for (int coin : coins) {
             if (amt - coin >= 0) {
                 dp[amt] = Math.min(dp[amt], dp[amt - coin] + 1);
