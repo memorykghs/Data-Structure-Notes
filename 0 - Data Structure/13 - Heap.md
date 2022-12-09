@@ -11,7 +11,7 @@ Heap 是一個特殊的、基於 Tree 結構的完滿樹 ( Complete Binary Tree 
               1
            /     \
           2       3
-        /   \   /   \
+        /   \   /   \                                                                                                                                  
        4     5 6     7
      /   \
     8     9
@@ -67,12 +67,64 @@ Heap 在實作上可以用一個 List 來表示，由上到下、由左至右的
 
 [圖片來源](https://www.techiedelight.com/zh-tw/introduction-priority-queues-using-binary-heaps/)
 
+
+## Java 中的 Heap
+
+基本上存在感極低，就像你那個大學畢業還是不知道名字的同學一樣。
+
+[https://stackoverflow.com/questions/14165325/is-there-a-heap-in-java](https://stackoverflow.com/questions/14165325/is-there-a-heap-in-java)
+
+在 Java 中比較常見到的實作 class 是 `PriorityQueue`。
+
+```java
+// Min Heap
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+// Max Heap
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+```
+
+> 💡屬於哪個架構下? ( e.g. Set 屬於 Collection 下 )
+
 ## 實作
 ↓ 爆幹好笑www
 [Rap Battle: Developer vs. Product Manager](https://www.youtube.com/watch?v=cTJeUTzSOHo)
 
 但另外一部同一個 Youtuber 上傳的影片很棒 😂
 [Data Structures: Heaps](https://www.youtube.com/watch?v=t0Cq6tVNRBA)
+
+主要的流程大致如下：
+1. build a Heap from an array (定義預設 capacity)
+2. 新增 / 刪除 / 其他 API
+3. Heap sort (Heapify)
+
+![](/images/DataStructure/13-6.png)
+
+等一下要實作的範例，細分一點可以切成：
+* public method
+1. `peek()`
+2. `poll()`
+3. `add()`
+4. `heapifyUp()`
+5. `heapifyDown()`
+
+* private method
+  1. `getParentIndex(index)` 取得父節點 index
+  2. `getLeftChildIndex(index)` 取得左邊子節點 index
+  3. `getRightChildIndex(index)` 取得右邊子節點 index
+  <br/>
+  4. `hasParent(index)` 是否有父節點
+  5. `hasLeftChild(index)` 是否有左邊子節點
+  6. `hasRightChild(index)` 是否有右邊子節點
+  <br/> 
+  7. `getParent(parentIndex)` 取得父節點 value
+  8. `getLeftChild(leftChildIndex)` 取得左邊子節點 value
+  9. `getRightChild(rightChildIndex)` 取得右邊子節點 value
+
+## LeetCode
+1. [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
+2. [506. Relative Ranks](https://leetcode.com/problems/relative-ranks/)
+
 
 ## 參考
 * https://www.geeksforgeeks.org/heap-data-structure/
