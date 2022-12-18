@@ -1,5 +1,4 @@
-# Array
-
+# Array 題型整理
 ## Type
 #### Find Duplicate
 * [Contains Duplicate (Easy)](https://leetcode.com/problems/contains-duplicate/)
