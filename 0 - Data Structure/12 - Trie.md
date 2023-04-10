@@ -1,4 +1,4 @@
-# Trie 字典數
+# Trie 字典樹
 ![](/images/DataStructure/12-1.png)
 
 ![](/images/DataStructure/12-2.png)
